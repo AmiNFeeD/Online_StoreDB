@@ -1,0 +1,6 @@
+DB_NAME = "online_store_db"
+DB_USER = "projectshop_app"
+DB_PASSWORD = "projectshop123"
+DB_HOST = "127.0.0.1"
+DB_PORT = "5432"
+SECRET_KEY = "dev-secret"

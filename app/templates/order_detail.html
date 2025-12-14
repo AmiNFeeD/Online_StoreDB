@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Order #{{ order.order_id }}</h2>
+
+<div class="card mt-3 mb-4">
+  <div class="card-body">
+    <p class="mb-1"><strong>Status:</strong> {{ order.status }}</p>
+    <p class="mb-1">
+      <strong>Date:</strong>
+      {{ order.created_at.strftime('%Y-%m-%d %H:%M') if order.created_at is not string else order.created_at }}
+    </p>
+    <p class="mb-0"><strong>Total:</strong> {{ order.total_amount }} KGS</p>
+  </div>
+</div>
+
+<h3>Items</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Line Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+    <tr>
+      <td>{{ item.product_name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.unit_price }} KGS</td>
+      <td>{{ item.line_total }} KGS</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('orders') }}" class="btn btn-secondary mt-2">Back to My Orders</a>
+
+{% endblock %}

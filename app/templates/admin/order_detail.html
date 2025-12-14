@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Order #{{ order.order_id }}</h2>
+
+<div class="row mt-3">
+  <div class="col-md-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Customer</h5>
+        <p class="mb-1"><strong>Name:</strong> {{ order.full_name }}</p>
+        <p class="mb-1"><strong>Email:</strong> {{ order.email }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Order Info</h5>
+        <p class="mb-1"><strong>Total:</strong> {{ order.total_amount }} KGS</p>
+        <p class="mb-1">
+          <strong>Date:</strong>
+          {{ order.created_at.strftime('%Y-%m-%d %H:%M') if order.created_at is not string else order.created_at }}
+        </p>
+
+        <form method="post" class="mt-2">
+          <div class="mb-2">
+            <label for="status" class="form-label"><strong>Status:</strong></label>
+            <select name="status" id="status" class="form-select" style="max-width: 250px;">
+              {% for s in all_statuses %}
+                <option value="{{ s }}" {% if s == order.status %}selected{% endif %}>
+                  {{ s }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Update Status</button>
+          <a href="{{ url_for('admin_orders') }}" class="btn btn-secondary btn-sm">Back to Orders</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="mt-4">Items</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product ID</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Line Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+    <tr>
+      <td>{{ item.product_id }}</td>
+      <td>{{ item.product_name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.unit_price }} KGS</td>
+      <td>{{ item.line_total }} KGS</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

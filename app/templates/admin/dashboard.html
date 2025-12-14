@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Admin Dashboard</h1>
+
+<div class="list-group mt-4" style="max-width: 600px;">
+  <a class="list-group-item list-group-item-action"
+     href="{{ url_for('admin_products') }}">
+    Manage Products
+  </a>
+
+  <a class="list-group-item list-group-item-action"
+     href="{{ url_for('admin_orders') }}">
+    Manage Orders
+  </a>
+
+  <a class="list-group-item list-group-item-action"
+     href="{{ url_for('admin_categories') }}">
+    Manage Categories
+  </a>
+
+  <a class="list-group-item list-group-item-action"
+     href="{{ url_for('admin_stats') }}">
+    Analytics & Stats
+  </a>
+</div>
+
+{% endblock %}

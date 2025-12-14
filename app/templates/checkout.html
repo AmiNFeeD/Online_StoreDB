@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Checkout</h2>
+
+{% if not items %}
+  <div class="alert alert-info">Your cart is empty.</div>
+{% else %}
+  <table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }} KGS</td>
+        <td>{{ item.line_total }} KGS</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <h4>Order total: {{ total }} KGS</h4>
+
+  <form method="post" class="mt-3">
+    <button type="submit" class="btn btn-success">Confirm Order</button>
+    <a href="{{ url_for('cart') }}" class="btn btn-secondary">Back to Cart</a>
+  </form>
+{% endif %}
+
+{% endblock %}
