@@ -137,6 +137,7 @@ source .venv/bin/activate
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
+If not working use, 'py' instead of 'python'
 
 ---
 
@@ -291,15 +292,15 @@ Due to the paywall of the w3schools website, the screenshots of the certificates
 ---
 ## Final Notes
 
-This project fully satisfies the **AUCA Databases Final Project** requirements:
+This project successfully fulfills all requirements of the AUCA Databases Final Project 2025, demonstrating a fully functional, well-structured, and cross-platform online store application. Key accomplishments include:
 
-- ✔ Database schema & normalization
-- ✔ SQL queries
-- ✔ SQL transactions
-- ✔ SQL views
-- ✔ SQL indexes
-- ✔ Admin dashboard
-- ✔ Analytics
-- ✔ Cross‑platform setup
+- ✔ Design and implementation of a fully normalized relational database schema
+- ✔ Comprehensive SQL queries, transactions, views, and indexes
+- ✔ Robust backend integration with Flask and PostgreSQL
+- ✔ Secure user authentication and transaction-safe order processing
+- ✔ Feature-rich admin dashboard with analytics and order management
+- ✔ Cross-platform compatibility across Windows, macOS, and Linux
+
+The project reflects careful planning, collaborative development, and adherence to best practices in database design and web application development.
 
 Prepared for **AUCA Databases Final Project 2025**.
