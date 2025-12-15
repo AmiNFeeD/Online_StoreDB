@@ -58,6 +58,10 @@ The project is designed to be **cross-platform** and works on:
 
 ## Database Schema
 
+### Diagram
+
+![image](/screens/diagram.png)
+
 ### Main Tables
 - `users`
 - `categories`
